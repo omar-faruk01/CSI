@@ -47,7 +47,7 @@ public class homes extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "select  distinct HOMEID,  ADDRESS from homes order by HOMEID";
+		query = "select distinct HOMEID,  ADDRESS from homes order by HOMEID";
 		
 		out.println("<html><head><title>Homes Table Report</title>");	 
 		out.println("</head><body>");

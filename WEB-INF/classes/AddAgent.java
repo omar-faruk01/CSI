@@ -21,14 +21,13 @@ public class AddAgent extends HttpServlet
 
     try 
 	{
-      if (HOMEID.length() == 0 || ADDRESS.length() == 0) {
+      if (PersonId.length() == 0 || LicenseNum.length() == 0) {
         out.println("Please: Home ID and Address are required");
         return; 
     }
-    storeHome(HOMEID, ADDRESS, FLOORSPACE, FLOORS, BEDROOMS,
-	FULLBATHROOMS, HALFBATHROOMS, LANDSIZE, YEARCONSTRUCTED);
-	out.println("<html><head><title>Homes Registeration Report</title>");	 
-	out.print( "<br /><b><center><font color=\"RED\"><H2>Homes Registeration Report</H2></font>");
+    storeAgent(PersonId, LicenseNum);
+	out.println("<html><head><title>Agent Registeration Report</title>");	 
+	out.print( "<br /><b><center><font color=\"RED\"><H2>Agent Registeration Report</H2></font>");
     out.println( "</center><br />" );
 	/*
 	out.println("</head><body>");
@@ -41,7 +40,7 @@ public class AddAgent extends HttpServlet
 	out.println("</table></center>");
 		
     out.println(HOMEID + " " + ADDRESS +
-        " is now added to the Homes table");
+        " is now added to the Agent table");
 	out.println("</body></html>");
     }
     catch(Exception ex) 
@@ -65,9 +64,7 @@ public class AddAgent extends HttpServlet
 		String user = "CSIPROJECT";
 		String password = "mohammed";  
 		Connection conn = DriverManager.getConnection(url,user, password);  
-		pstmt = conn.prepareStatement("insert into homes " +
-        "(HOMEID, ADDRESS, FLOORSPACE, FLOORS, BEDROOMS, FULLBATHROOMS, HALFBATHROOMS, "
-         + "LANDSIZE, YEARCONSTRUCTED) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		pstmt = conn.prepareStatement("insert into agent " + "(PersonID, LicenseNum) values (?, ?)");
     }
     catch (Exception ex) 
 	{
@@ -76,19 +73,9 @@ public class AddAgent extends HttpServlet
   }
 
   
-  private void storeHome(String HOMEID, String ADDRESS,
-      String FLOORSPACE, String FLOORS, String BEDROOMS, String FULLBATHROOMS,
-      String HALFBATHROOMS, String LANDSIZE, String YEARCONSTRUCTED) throws SQLException 
- {
-    pstmt.setString(1, HOMEID);
-    pstmt.setString(2,ADDRESS);
-    pstmt.setString(3, FLOORSPACE);
-    pstmt.setString(4, FLOORS);
-    pstmt.setString(5, BEDROOMS);
-    pstmt.setString(6, FULLBATHROOMS);
-    pstmt.setString(7, HALFBATHROOMS);
-    pstmt.setString(8, LANDSIZE);
-    pstmt.setString(9, YEARCONSTRUCTED);
-    pstmt.executeUpdate();
- }
+ private void storeAgent(String PersonId, String LicenseNum) throws SQLException {
+        pstmt.setString(1, PersonId);
+        pstmt.setString(2, LicenseNum);
+        pstmt.executeUpdate();
+    
 }
