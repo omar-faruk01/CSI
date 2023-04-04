@@ -12,6 +12,7 @@ public class homes extends HttpServlet
 			ResultSet result = null;
 			String query="";        
 			Connection con=null; 
+			String CITY = request.getParameter("CITY");		//user input   
 
 		try
 		{			
@@ -47,12 +48,12 @@ public class homes extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "select distinct h.HOMEID, l.ADDRESS from HOMES h JOIN Location l ON HOMES.HomeID=Location.HomeID order by HOMEID";
+		query = "select distinct h.HOMEID, l.ADDRESS from HOMES h JOIN Location l ON HOMES.HomeID=Location.HomeID WHERE l.CITY='"+CITY+"'";
 		
-		out.println("<html><head><title>Homes Table Report</title>");	 
+		out.println("<html><head><title>Homes in your City</title>");	 
 		out.println("</head><body>");
 		
-		out.print( "<br /><b><center><font color=\"RED\"><H2>Homes Table Report</H2></font>");
+		out.print( "<br /><b><center><font color=\"RED\"><H2>Homes in your City</H2></font>");
         out.println( "</center><br />" );
        	try 
 		{ 

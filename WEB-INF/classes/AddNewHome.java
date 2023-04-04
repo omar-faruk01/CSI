@@ -20,8 +20,7 @@ public class AddNewHome extends HttpServlet
     String FLOORSPACE = request.getParameter("FLOORSPACE");
     String FLOORS = request.getParameter("FLOORS");
     String BEDROOMS= request.getParameter("BEDROOMS");
-    String FULLBATHROOMS = request.getParameter("FULLBATHROOMS");
-    String HALFBATHROOMS = request.getParameter("HALFBATHROOMS");
+    String BATHROOMS = request.getParameter("BATHROOMS");
     String LANDSIZE = request.getParameter("LANDSIZE");
     String YEARCONSTRUCTED = request.getParameter("YEARCONSTRUCTED");
 
@@ -31,8 +30,9 @@ public class AddNewHome extends HttpServlet
         out.println("Please: Home ID and Address are required");
         return; 
     }
-    storeHome(HOMEID, ADDRESS, FLOORSPACE, FLOORS, BEDROOMS,
-	FULLBATHROOMS, HALFBATHROOMS, LANDSIZE, YEARCONSTRUCTED);
+    storeHome(HOMEID, FLOORSPACE, FLOORS, BEDROOMS,
+	BATHROOMS, LANDSIZE, YEARCONSTRUCTED);
+    storeLocation(HOMEID, HOMEID, ADDRESS);
 	out.println("<html><head><title>Homes Registeration Report</title>");	 
 	out.print( "<br /><b><center><font color=\"RED\"><H2>Homes Registeration Report</H2></font>");
     out.println( "</center><br />" );
@@ -72,8 +72,10 @@ public class AddNewHome extends HttpServlet
 		String password = "mohammed";  
 		Connection conn = DriverManager.getConnection(url,user, password);  
 		pstmt = conn.prepareStatement("insert into homes " +
-        "(HOMEID, ADDRESS, FLOORSPACE, FLOORS, BEDROOMS, FULLBATHROOMS, HALFBATHROOMS, "
-         + "LANDSIZE, YEARCONSTRUCTED) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        "(HOMEID, FLOORSPACE, FLOORS, BEDROOMS, BATHROOMS,"
+         + "LANDSIZE, YEARCONSTRUCTED) values (?, ?, ?, ?, ?, ?, ?)");
+         pstmt1 = conn.prepareStatement("insert into location " +
+        "(LocationID, HOMEID, ADDRESS) values (?, ?, ?)");
     }
     catch (Exception ex) 
 	{
@@ -82,19 +84,26 @@ public class AddNewHome extends HttpServlet
   }
 
   
-  private void storeHome(String HOMEID, String ADDRESS,
-      String FLOORSPACE, String FLOORS, String BEDROOMS, String FULLBATHROOMS,
-      String HALFBATHROOMS, String LANDSIZE, String YEARCONSTRUCTED) throws SQLException 
+  private void storeHome(String HOMEID,
+      String FLOORSPACE, String FLOORS, String BEDROOMS, String BATHROOMS,
+      String LANDSIZE, String YEARCONSTRUCTED) throws SQLException 
  {
     pstmt.setString(1, HOMEID);
-    pstmt.setString(2,ADDRESS);
-    pstmt.setString(3, FLOORSPACE);
-    pstmt.setString(4, FLOORS);
-    pstmt.setString(5, BEDROOMS);
-    pstmt.setString(6, FULLBATHROOMS);
-    pstmt.setString(7, HALFBATHROOMS);
-    pstmt.setString(8, LANDSIZE);
-    pstmt.setString(9, YEARCONSTRUCTED);
+    pstmt.setString(2, FLOORSPACE);
+    pstmt.setString(3, FLOORS);
+    pstmt.setString(4, BEDROOMS);
+    pstmt.setString(5, BATHROOMS);
+    pstmt.setString(6, LANDSIZE);
+    pstmt.setString(7, YEARCONSTRUCTED);
     pstmt.executeUpdate();
+ }
+
+ private void storeLocation(String LocationID, String HOMEID,
+      String ADDRESS) throws SQLException 
+ {
+    pstmt1.setString(1, LocationID);
+    pstmt1.setString(2, HomeID);
+    pstmt1.setString(3, ADDRESS);
+    pstmt1.executeUpdate();
  }
 }
