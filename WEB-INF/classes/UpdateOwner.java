@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 
-public class SelectMovi extends HttpServlet 
+public class UpdateOwner extends HttpServlet 
 {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException,IOException
@@ -19,12 +19,18 @@ public class SelectMovi extends HttpServlet
 			Connection con=null; 
             
 
-                String mId = request.getParameter("mId");
-				
+                String OwnerID = request.getParameter("OWNERID");
+				String Profession = request.getParameter("PROFESSION");
+            
+					
+           
+
+
+
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
-            con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "MCS3543PROJECT", "mohammed");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "CSIPROJECT", "mohammed");
 	       	System.out.println("Congratulations! You are connected successfully.");      
       
 			
@@ -60,17 +66,17 @@ public class SelectMovi extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "select * from Movi where mId  = '"+mId+"'";											
+		query = "update Owner set OwnerID = '"+OwnerID+"' where Profession  = '"+Profession+"'";											
       
 		
 		out.println("<html><head><title>  Record has been updated</title>");	 
 		out.println("</head><body>");
 		
 		
-		out.print( "<br /><b><center><font color=\"RED\"><H2>The following record(s) have been selected from the database:</H2></font>");
+		out.print( "<br /><b><center><font color=\"RED\"><H2>The following record has been updated in the database:</H2></font>");
 		
-        out.print( lastName );
-		out.print( firstName );
+        out.print( Profession );
+		out.print( OwnerID );
 		
         out.println( "</center><br />" );
        	try 

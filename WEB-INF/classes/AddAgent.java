@@ -22,7 +22,7 @@ public class AddAgent extends HttpServlet
     try 
 	{
       if (PersonId.length() == 0 || LicenseNum.length() == 0) {
-        out.println("Please: Home ID and Address are required");
+        out.println("Please: Agent ID and License Number are required");
         return; 
     }
     storeAgent(PersonId, LicenseNum);

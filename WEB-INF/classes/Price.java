@@ -2,7 +2,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
-public class Selecthome extends HttpServlet 			//class
+public class Price extends HttpServlet 			//class
 {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException,IOException
@@ -11,7 +11,7 @@ public class Selecthome extends HttpServlet 			//class
 		ResultSet result = null;
 		String query="";        
 		Connection con=null; 
-        String HOMEID = request.getParameter("HOMEID");		//user input                                                   
+        String PRICE = request.getParameter("price");		//user input                                                   
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); //web server connects java code to sql
@@ -46,12 +46,12 @@ public class Selecthome extends HttpServlet 			//class
   			e.printStackTrace();
 		}
 		
-		query = "Select h.HomeID, l.Address, h.Floorspace, h.Floors, h.BedRooms, h.BathRooms, h.Landsize, h.YearConstructed, l.City, l.ZipCode from HOMES JOIN Location ON h.HomeID=l.HomeID where HOMEID = '"+HOMEID+"'";   //communicates with sql
+		query = "Select h.HomeID, h.HomePrice, l.Address from HOMES h JOIN Location l ON HOMES.HomeID=Location.HomeID where HomePrice = '"+PRICE+"' SORT BY HomePrice DESC";   //communicates with sql
 		
-		out.println("<html><head><title>  The House Attribute Report</title>");	 
+		out.println("<html><head><title> Home Results</title>");	 
 		out.println("</head><body>");
 		
-		out.print( "<br /><b><center><font color=\"white\"><H2>The House Attribute Report</H2></font>");
+		out.print( "<br /><b><center><font color=\"white\"><H2>Home Results</H2></font>");
         out.println( "</center><br />" );
        	try 
 		{ 
@@ -65,15 +65,8 @@ public class Selecthome extends HttpServlet 			//class
 		out.println("<center><table border=\"1\">"); 			// Chart printout of house attributes
 		out.println("<tr BGCOLOR=\"#cccccc\">");
         out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">HOMEID</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">PRICE</td>");
         out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">ADDRESS</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">FLOORSPACE</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">FLOORS</td>");
-		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">BEDROOMS</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">BATHROOMS</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">LANDSIZE</td>");
-		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">YEARCONSTRUCTED</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">CITY</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">ZIP</td>");
 		out.println("</tr>");
 		try 
 		{ 
@@ -83,13 +76,6 @@ public class Selecthome extends HttpServlet 			//class
                     out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(1)+"</td>");
 		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(2)+"</td>");
                     out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(3)+"</td>");
-		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(4)+"</td>");
-					out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(5)+"</td>");
-		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(6)+"</td>");
-                    out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(7)+"</td>");
-		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(8)+"</td>");
-					out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(9)+"</td>");
-		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(10)+"</td>");
                     out.println("</tr>");              		
 			} 
 	    }
