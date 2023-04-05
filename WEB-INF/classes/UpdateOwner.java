@@ -18,7 +18,7 @@ public class UpdateOwner extends HttpServlet
 			String query="";        
 			Connection con=null; 
 
-			String OwnerID = request.getParameter("OWNERID");
+			String SSN = request.getParameter("SSN");
 			String Profession = request.getParameter("PROFESSION");
 
 		try
@@ -63,7 +63,7 @@ public class UpdateOwner extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "update Owner set OwnerID = '"+OwnerID+"' where Profession  = '"+Profession+"'";											
+		query = "update Owner set PROFESSION = '"+Profession+"' where SSN  = '"+SSN+"'";											
       
 		
 		out.println("<html><head><title>  Record has been updated</title>");	 
@@ -73,7 +73,7 @@ public class UpdateOwner extends HttpServlet
 		out.print( "<br /><b><center><font color=\"RED\"><H2>The following record has been updated in the database:</H2></font>");
 		
         out.print( Profession );
-		out.print( OwnerID );
+		out.print( SSN );
 		
         out.println( "</center><br />" );
        	try 

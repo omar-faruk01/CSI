@@ -1,8 +1,8 @@
-<!-- AddPerson.html -->
+<!-- AddCompany.html -->
 <html>
 
 <head>
-	<title>Adding a Owner</title>
+	<title>Adding a Company</title>
 	<link href="/styles.css" rel="stylesheet" />
 	<!-- Paste this between the HEAD tags of your html document -->
 
@@ -57,14 +57,22 @@ o\:*         { behavior: url(#default#VML) }
 				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
 					onclick="mClk(this);" bgcolor="#2272a8">
 					<b>
-						<a style="color: white" href="AddPerson.html">
+						<a style="color: white" href="AddOwner.html">
 							<font face="Tahoma" size="3">Add An Owner</font>
 						</a></b>
+				</td>
 				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
 					onclick="mClk(this);" bgcolor="#2272a8">
 					<b>
 						<a style="color: white" href="AddAgent.html">
 							<font face="Tahoma" size="3">Add An Agent</font>
+						</a></b>
+				</td>
+				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
+					onclick="mClk(this);" bgcolor="#2272a8">
+					<b>
+						<a style="color: white" href="AddCompany.html">
+							<font face="Tahoma" size="3">Add Your Company</font>
 						</a></b>
 				</td>
 				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
@@ -118,44 +126,38 @@ o\:*         { behavior: url(#default#VML) }
 		&nbsp;<p align="center">
 			<font color="#000000""><b>
         <font face=" Arial" size="4">&nbsp;</font>
-			<font face="Bernard MT Condensed" size="5">Add A New Person
+			<font face="Bernard MT Condensed" size="5">Add A Company
 			</font></b></font>
 		</p>
 		<center>
 
-			Want to add a new owner? Enter the Owner ID and name below!
+			Are you an Agent that would like to add your company? Enter the details below and click 'Submit' to add your company to our list.
 			<p>
 				<font color="red">Note: * Required Fields</font>
 			</p>
 
-			<form method="post" action="CSI/AddOwner">
+			<form method="post" action="/WEB-INF/classes/AddCompany">
 				<p>
 
 				<table>
 					<tr>
 						<td>
-							<input type="number" name="OWNERID" placeholder="OWNER ID *" min="0">&nbsp;
+							<input type="number" name="COMPANYID" placeholder="COMPANY ID *" min="0">&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="NAME" placeholder="NAME *" size="25"></span></font>&nbsp;
+							<input type="text" name="COMPANYNAME" placeholder="COMPANY Name *" size="25"></span></font>&nbsp;
 						</td>
 					<tr>
 						<td>
-							<input type="number" name="SSN" placeholder="SSN (EX. 123456789)" size="25" min="0"></span>
+							<input type="number" name="COMMISSIONRATE" placeholder="COMMISSION RATE" size="25" min="0"></span>
 							</font>&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="PROFESSION" placeholder="PROFESSION" size="25"></span></font>&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<input type="number" name="INCOME" placeholder="INCOME" size="25" min="0"></span></font>
-							&nbsp;
+							<input type="text" name="OFFICECITY" placeholder="Office Location (City)" size="25"></span></font>&nbsp;
 						</td>
 					</tr>
 

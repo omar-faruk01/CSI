@@ -1,8 +1,8 @@
-<!-- SimpleRegistration.html -->
+<!-- AddOwner.html -->
 <html>
 
 <head>
-	<title>Simple Delete</title>
+	<title>Adding a Owner</title>
 	<link href="/styles.css" rel="stylesheet" />
 	<!-- Paste this between the HEAD tags of your html document -->
 
@@ -57,14 +57,22 @@ o\:*         { behavior: url(#default#VML) }
 				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
 					onclick="mClk(this);" bgcolor="#2272a8">
 					<b>
-						<a style="color: white" href="AddPerson.html">
+						<a style="color: white" href="AddOwner.html">
 							<font face="Tahoma" size="3">Add An Owner</font>
 						</a></b>
+				</td>
 				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
 					onclick="mClk(this);" bgcolor="#2272a8">
 					<b>
 						<a style="color: white" href="AddAgent.html">
 							<font face="Tahoma" size="3">Add An Agent</font>
+						</a></b>
+				</td>
+				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
+					onclick="mClk(this);" bgcolor="#2272a8">
+					<b>
+						<a style="color: white" href="AddCompany.html">
+							<font face="Tahoma" size="3">Add Your Company</font>
 						</a></b>
 				</td>
 				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
@@ -113,30 +121,59 @@ o\:*         { behavior: url(#default#VML) }
 
 <body bgcolor="#ededed">
 
+
 	<Body Text="#000000">
 		&nbsp;<p align="center">
-			<font color="black""><b>
-			<font face=" Arial" size="4">&nbsp;</font>
-			<font face="Bernard MT Condensed" size="5">Simple Delete
+			<font color="#000000""><b>
+        <font face=" Arial" size="4">&nbsp;</font>
+			<font face="Bernard MT Condensed" size="5">Add A New Person
 			</font></b></font>
 		</p>
 		<center>
 
-			Want to delete your home from our database? Just enter your last name below, and click the 'Submit' Button
+			Want to add a new owner? Enter the Owner ID and name below!
 			<p>
-				<font color="#FF0000">* required fields</font>
+				<font color="red">Note: * Required Fields</font>
 			</p>
 
-			<form method="post" action="CSI/SimpleDelete">
+			<form method="post" action="CSI/AddOwner">
+				<p>
+
 				<table>
 					<tr>
 						<td>
-							<input type="text" name="HomeID" placeholder="Last Name *">&nbsp;
+							<input type="number" name="SSN" placeholder="SSN *" min="0">&nbsp;
 						</td>
 					</tr>
+					<tr>
+						<td>
+							<input type="text" name="OWNERNAME" placeholder="NAME *" size="25"></span></font>&nbsp;
+						</td>
+					<tr>
+						<td>
+							<input type="number" name="DEPENDENTS" placeholder="NUMBER OF DEPENDENTS (EX. 2,4)" size="25" min="0"></span>
+							</font>&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="number" name="INCOME" placeholder="INCOME" size="25"></span></font>&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="number" name="AGE" placeholder="AGE" size="25" min="0"></span></font>
+							&nbsp;
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" name="PROFESSION" placeholder="PROFESSION" size="25" min="0"></span></font>
+							&nbsp;
+						</td>
+					</tr>
+
 				</table>
-
-
 				<table>
 					<tr>
 						<td>
@@ -147,9 +184,34 @@ o\:*         { behavior: url(#default#VML) }
 						</td>
 					</tr>
 				</table>
+				</p>
 			</form>
 
 		</center>
+
+		<OBJECT classid=CLSID:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F id=ricci width="32" height="32"></OBJECT>
+		<SCRIPT>
+
+			var MerlinID;
+			var MerlinACS;
+			ricci.Connected = true;
+			MerlinLoaded = LoadLocalAgent(MerlinID, MerlinACS);
+			Merlin = ricci.Characters.Character(MerlinID);
+			Merlin.Show();
+			Merlin.Play("congratulate");
+			Merlin.Speak("Wonderful,...Let's add a new person.  ..");
+			Merlin.Play("domagic1");
+			//Merlin.Speak("Greating Doctor Azar, I am glad to see you at..house dot com.  ");
+			Merlin.Hide();
+			function LoadLocalAgent(CharID, CharACS) {
+				LoadReq = ricci.Characters.Load(CharID, CharACS);
+				return (true);
+			}
+// BY STAR28.com
+		</SCRIPT>
+
+
+
 	</body>
 
 </html>
