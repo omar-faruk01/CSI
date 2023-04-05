@@ -129,33 +129,33 @@ o\:*         { behavior: url(#default#VML) }
 				<table>
 					<tr>
 						<td>
-							<input type="number" name="SSN" placeholder="SSN *" min="0">&nbsp;
+							<input type="number" name="SSN" placeholder="SSN *" min="0" maxlength="9" required>&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="OWNERNAME" placeholder="NAME *" size="25"></span></font>&nbsp;
+							<input type="text" name="OWNERNAME" placeholder="NAME *" size="25" maxlength="140" required></span></font>&nbsp;
 						</td>
 					<tr>
 						<td>
-							<input type="number" name="DEPENDENTS" placeholder="NUMBER OF DEPENDENTS (EX. 2,4)" size="25" min="0"></span>
+							<input type="number" name="DEPENDENTS" placeholder="NUMBER OF DEPENDENTS (EX. 2,4)" size="25" min="0" max="40"></span>
 							</font>&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="number" name="INCOME" placeholder="INCOME" size="25"></span></font>&nbsp;
+							<input type="number" name="INCOME" placeholder="INCOME" size="25" maxlength="20"></span></font>&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="number" name="AGE" placeholder="AGE" size="25" min="0"></span></font>
+							<input type="number" name="AGE" placeholder="AGE" size="25" min="12" max="140"></span></font>
 							&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="PROFESSION" placeholder="PROFESSION" size="25" min="0"></span></font>
+							<input type="text" name="PROFESSION" placeholder="PROFESSION" size="25" min="0" maxlength="140"></span></font>
 							&nbsp;
 						</td>
 					</tr>
