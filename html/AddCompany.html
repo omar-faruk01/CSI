@@ -29,14 +29,7 @@ o\:*         { behavior: url(#default#VML) }
 	<center>
 		<TABLE BORDER="5">
 			<TR>
-				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
-					onclick="mClk(this);" bgcolor="#2272a8">
-					<b>
-						<a style="color: white" href="homes">
-							<font face="Tahoma" size="3">Homes</font>
-						</a></b>
-				</td>
-
+				
 				<td align="center" width="105" onmouseover="mOvr(this,'#0b66a3');" onmouseout="mOut(this,'#2272a8');"
 					onclick="mClk(this);" bgcolor="#2272a8">
 					<b>
@@ -141,17 +134,17 @@ o\:*         { behavior: url(#default#VML) }
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="COMPANYNAME" placeholder="COMPANY Name *" size="25" required></span></font>&nbsp;
+							<input type="text" name="COMPANYNAME" placeholder="COMPANY Name *" size="25" required maxlength="140"></span></font>&nbsp;
 						</td>
 					<tr>
 						<td>
-							<input type="number" name="COMMISSIONRATE" placeholder="COMMISSION RATE" size="25" min="0"></span>
+							<input type="number" name="COMMISSIONRATE" placeholder="COMMISSION RATE" size="25" min="0" max="1000"></span>
 							</font>&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="OFFICECITY" placeholder="Office Location (City)" size="25"></span></font>&nbsp;
+							<input type="text" name="OFFICECITY" placeholder="Office Location (City)" size="25" maxlength="140"></span></font>&nbsp;
 						</td>
 					</tr>
 
