@@ -17,7 +17,7 @@
 				MI <input type="text" name="mi" size="3">
 			</p>
 			<p>Telephone
-				<input type="text" name="telephone" size="20">&nbsp;
+				<input type="tel" id="phone" name="telephone" size="20" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">&nbsp;
 				Email
 				<input type="text" name="email" size="28">&nbsp;
 			</p>
@@ -43,3 +43,18 @@
 </body>
 
 </html>
+<script>
+	var phone_input = document.getElementById("myform_phone");
+
+	phone_input.addEventListener('input', () => {
+	phone_input.setCustomValidity('');
+	phone_input.checkValidity();
+	});
+	phone_input.addEventListener('invalid', () => {
+	if(phone_input.value === '') {
+	phone_input.setCustomValidity('Enter phone number!');
+	} else {
+	phone_input.setCustomValidity('Enter phone number in this format: 123-456-7890');
+	}
+	});
+</script>
