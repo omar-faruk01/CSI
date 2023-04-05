@@ -22,3 +22,7 @@
     margin: 4px 2px;
     cursor: pointer;
   }
+
+  .rounded-circle {
+    border-radius: 50% !important;
+  }
