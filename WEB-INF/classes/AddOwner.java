@@ -20,7 +20,6 @@ public class AddOwner extends HttpServlet
     String SSN = request.getParameter("SSN");
     String PROFESSION = request.getParameter("PROFESSION");
     String INCOME = request.getParameter("INCOME");
-    
 
     try 
 	{
@@ -76,4 +75,4 @@ public class AddOwner extends HttpServlet
         pstmt.setString(5, INCOME);
         pstmt.executeUpdate();
     
-}
+}};

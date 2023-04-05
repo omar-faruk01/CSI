@@ -11,14 +11,19 @@ public class homes extends HttpServlet
 			Statement state4 = null;
 			ResultSet result = null;
 			String query="";        
-			Connection con=null; 
+			Connection con=null;
 
 		try
-		{			
-            DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
-            con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "CSIPROJECT", "mohammed");
-	       	System.out.println("Congratulations! You are connected successfully.");      
-     	}
+		{
+			String driver = "oracle.jdbc.driver.OracleDriver";
+			Class.forName(driver);
+			// database URL is the unique identifier of the database on the Internet
+			// thin is the oracle server
+			String url = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
+			String user = "CSIPROJECT";
+			String password = "mohammed";
+			con = DriverManager.getConnection(url,user, password);
+		}
         catch(SQLException e)
 		{	
 			System.out.println("Error: "+e);	

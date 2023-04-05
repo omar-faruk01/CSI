@@ -39,7 +39,7 @@ public class AddAgent extends HttpServlet
 	*/
 	out.println("</table></center>");
 		
-    out.println(HOMEID + " " + ADDRESS +
+    out.println(PersonId + " " + LicenseNum +
         " is now added to the Agent table");
 	out.println("</body></html>");
     }
@@ -74,8 +74,8 @@ public class AddAgent extends HttpServlet
 
   
  private void storeAgent(String PersonId, String LicenseNum) throws SQLException {
-        pstmt.setString(1, PersonId);
-        pstmt.setString(2, LicenseNum);
-        pstmt.executeUpdate();
-    
-}
+     pstmt.setString(1, PersonId);
+     pstmt.setString(2, LicenseNum);
+     pstmt.executeUpdate();
+
+ }};
