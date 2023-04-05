@@ -26,6 +26,8 @@ public class AddNewHome extends HttpServlet {
         String BATHROOMS = request.getParameter("BATHROOMS");
         String LANDSIZE = request.getParameter("LANDSIZE");
         String YEARCONSTRUCTED = request.getParameter("YEARCONSTRUCTED");
+        String CATEGORY = request.getParameter("CATEGORY");
+        String HOMEPRICE = request.getParameter("HOMEPRICE");
 
         try {
             if (HOMEID.length() == 0 || ADDRESS.length() == 0) {
@@ -72,9 +74,9 @@ public class AddNewHome extends HttpServlet {
             String user = "CSIPROJECT";
             String password = "mohammed";
             Connection conn = DriverManager.getConnection(url, user, password);
-            pstmt = conn.prepareStatement("insert into homes " +
+            pstmt = conn.prepareStatement("insert into HOMES " +
                     "(HOMEID, FLOORSPACE, FLOORS, BEDROOMS, BATHROOMS,"
-                    + "LANDSIZE, YEARCONSTRUCTED) values (?, ?, ?, ?, ?, ?, ?)");
+                    + "LANDSIZE, YEARCONSTRUCTED, CATEGORY, HOMEPRICE) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             pstmt1 = conn.prepareStatement("insert into location " +
                     "(LocationID, HOMEID, ADDRESS) values (?, ?, ?)");
         } catch (Exception ex) {
@@ -92,6 +94,8 @@ public class AddNewHome extends HttpServlet {
         pstmt.setString(5, BATHROOMS);
         pstmt.setString(6, LANDSIZE);
         pstmt.setString(7, YEARCONSTRUCTED);
+        pstmt.setString(7, CATEGORY);
+        pstmt.setString(7, HOMEPRICE);
         pstmt.executeUpdate();
     }
 

@@ -15,17 +15,18 @@ public class AddAgent extends HttpServlet
 	response.setContentType("text/html");
     PrintWriter out = response.getWriter();
 
-    String PersonId = request.getParameter("PersonId");
-    String LicenseNum = request.getParameter("LicenseNum");
+    String AgentID = request.getParameter("AgentID");
+    String AgentName = request.getParameter("AgentName");
+    String AgentEmail = request.getParameter("AgentEmail");
     
 
     try 
 	{
-      if (PersonId.length() == 0 || LicenseNum.length() == 0) {
-        out.println("Please: Agent ID and License Number are required");
+      if (AgentID.length() == 0 || AgentName.length() == 0) {
+        out.println("Please: Agent ID and Name are required");
         return; 
     }
-    storeAgent(PersonId, LicenseNum);
+    storeAgent(PersonId, AgentName, AgentEmail);
 	out.println("<html><head><title>Agent Registeration Report</title>");	 
 	out.print( "<br /><b><center><font color=\"RED\"><H2>Agent Registeration Report</H2></font>");
     out.println( "</center><br />" );
@@ -39,7 +40,7 @@ public class AddAgent extends HttpServlet
 	*/
 	out.println("</table></center>");
 		
-    out.println(PersonId + " " + LicenseNum +
+    out.println(AgentID + " " + AgentName +
         " is now added to the Agent table");
 	out.println("</body></html>");
     }
@@ -64,7 +65,7 @@ public class AddAgent extends HttpServlet
 		String user = "CSIPROJECT";
 		String password = "mohammed";  
 		Connection conn = DriverManager.getConnection(url,user, password);  
-		pstmt = conn.prepareStatement("insert into agent " + "(PersonID, LicenseNum) values (?, ?)");
+		pstmt = conn.prepareStatement("insert into AGENT " + "(AgentID, AgentName, AgentEmail) values (?, ?, ?)");
     }
     catch (Exception ex) 
 	{
@@ -73,9 +74,10 @@ public class AddAgent extends HttpServlet
   }
 
   
- private void storeAgent(String PersonId, String LicenseNum) throws SQLException {
-     pstmt.setString(1, PersonId);
-     pstmt.setString(2, LicenseNum);
+ private void storeAgent(String AgentID, String AgentName, String AgentEmail) throws SQLException {
+     pstmt.setString(1, AgentID);
+     pstmt.setString(2, AgentName);
+     pstmt.setString(2, AgentEmail);
      pstmt.executeUpdate();
 
  }};

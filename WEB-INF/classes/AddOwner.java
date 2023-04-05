@@ -15,25 +15,26 @@ public class AddOwner extends HttpServlet
 	response.setContentType("text/html");
     PrintWriter out = response.getWriter();
 
-    String OWNERID = request.getParameter("OWNERID");
-    String NAME = request.getParameter("NAME");
     String SSN = request.getParameter("SSN");
-    String PROFESSION = request.getParameter("PROFESSION");
+    String OWNERNAME = request.getParameter("OWNERNAME");
+    String DEPENDENTS = request.getParameter("DEPENDENTS");
     String INCOME = request.getParameter("INCOME");
+    String AGE = request.getParameter("AGE");
+    String PROFESSION = request.getParameter("PROFESSION");
 
     try 
 	{
-      if (OWNERID.length() == 0 || NAME.length() == 0) {
-        out.println("Please: OwnerID and Name are required");
+      if (SSN.length() == 0 || OWNERNAME.length() == 0) {
+        out.println("Please: SSN and Name are required");
         return; 
     }
-    storeOwner(OWNERID, NAME, SSN, PROFESSION, INCOME);
+    storeOwner(SSN, OWNERNAME, DEPENDENTS, INCOME, AGE, PROFESSION);
 	out.println("<html><head><title>Owner Registeration Report</title>");	 
 	out.print( "<br /><b><center><font color=\"RED\"><H2>Owner Registeration Report</H2></font>");
   out.println( "</center><br />" );
 	out.println("</table></center>");
 		
-    out.println(OWNERID + " " + NAME +
+    out.println(SSN + " " + OWNERNAME +
         " is now added to the Owner table");
 	out.println("</body></html>");
     }
@@ -58,7 +59,7 @@ public class AddOwner extends HttpServlet
 		String user = "CSIPROJECT";
 		String password = "mohammed";  
 		Connection conn = DriverManager.getConnection(url,user, password);  
-		pstmt = conn.prepareStatement("insert into OWNER " + "(OWNERID, NAME, SSN, PROFESSION, INCOME) values (?, ?, ?, ?, ?)");
+		pstmt = conn.prepareStatement("insert into OWNER " + "(SSN, OWNERNAME, DEPENDENTS, INCOME, AGE, PROFESSION) values (?, ?, ?, ?, ?, ?)");
     }
     catch (Exception ex) 
 	{
@@ -67,12 +68,13 @@ public class AddOwner extends HttpServlet
   }
 
   
- private void storeOwner(String OWNERID, String NAME, String SSN, String PROFESSION, String INCOME) throws SQLException {
-        pstmt.setString(1, OWNERID);
-        pstmt.setString(2, NAME);
-        pstmt.setString(3, SSN);
-        pstmt.setString(4, PROFESSION);
-        pstmt.setString(5, INCOME);
+ private void storeOwner(String SSN, String OWNERNAME, String DEPENDENTS, String INCOME, String AGE, String PROFESSION) throws SQLException {
+        pstmt.setString(1, SSN);
+        pstmt.setString(2, OWNERNAME);
+        pstmt.setString(3, DEPENDENTS);
+        pstmt.setString(4, INCOME);
+        pstmt.setString(5, AGE);
+        pstmt.setString(6, PROFESSION);
         pstmt.executeUpdate();
     
 }};
