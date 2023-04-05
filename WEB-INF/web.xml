@@ -118,6 +118,16 @@
      <url-pattern>/AddAgent</url-pattern>
   </servlet-mapping>
 
+    <servlet>
+     <servlet-name>AddCompany</servlet-name>
+     <servlet-class>AddCompany</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>AddCompany</servlet-name>
+     <url-pattern>/AddCompany</url-pattern>
+  </servlet-mapping>
+
   <servlet>
      <servlet-name>AddNewHome</servlet-name>
      <servlet-class>AddNewHome</servlet-class>
@@ -126,6 +136,16 @@
   <servlet-mapping>
      <servlet-name>AddNewHome</servlet-name>
      <url-pattern>/AddNewHome</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+     <servlet-name>AddOwner</servlet-name>
+     <servlet-class>AddOwner</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>AddOwner</servlet-name>
+     <url-pattern>/AddOwner</url-pattern>
   </servlet-mapping>
 
  
@@ -181,15 +201,15 @@
      <servlet-name>homesForSale</servlet-name>
      <url-pattern>/homesForSale</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-     <servlet-name>AddPerson</servlet-name>
-     <servlet-class>AddPerson</servlet-class>
+
+    <servlet>
+     <servlet-name>UpdateOwner</servlet-name>
+     <servlet-class>UpdateOwner</servlet-class>
   </servlet>
 
   <servlet-mapping>
-     <servlet-name>AddPerson</servlet-name>
-     <url-pattern>/AddPerson</url-pattern>
+     <servlet-name>UpdateOwner</servlet-name>
+     <url-pattern>/UpdateOwner</url-pattern>
   </servlet-mapping>
 
   <servlet>

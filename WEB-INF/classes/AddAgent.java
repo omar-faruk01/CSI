@@ -26,7 +26,7 @@ public class AddAgent extends HttpServlet
         out.println("Please: Agent ID and Name are required");
         return; 
     }
-    storeAgent(PersonId, AgentName, AgentEmail);
+    storeAgent(AgentID, AgentName, AgentEmail);
 	out.println("<html><head><title>Agent Registeration Report</title>");	 
 	out.print( "<br /><b><center><font color=\"RED\"><H2>Agent Registeration Report</H2></font>");
     out.println( "</center><br />" );
@@ -62,8 +62,8 @@ public class AddAgent extends HttpServlet
 		// database URL is the unique identifier of the database on the Internet
 		// thin is the oracle server
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
-		String user = "CSIPROJECT";
-		String password = "mohammed";  
+		String user = "SYSTEM";
+		String password = "password";  
 		Connection conn = DriverManager.getConnection(url,user, password);  
 		pstmt = conn.prepareStatement("insert into AGENT " + "(AgentID, AgentName, AgentEmail) values (?, ?, ?)");
     }
