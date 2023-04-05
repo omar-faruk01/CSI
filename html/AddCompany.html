@@ -116,15 +116,18 @@ o\:*         { behavior: url(#default#VML) }
 	</center>
 </head>
 
-<body bgcolor="cbf9ff">
-	&nbsp;<p align="center">
-		<font color="#000000"><b>
-        <font face="Arial" size="4">&nbsp;</font>
-		<font size="6">Add A Company
-		</font></b></font>
-	</p>
-	<center>
-		<aside style="background-color: #ededed; width:50%; padding:5%">
+<body bgcolor="#ededed">
+
+
+	<Body Text="#000000">
+		&nbsp;<p align="center">
+			<font color="#000000""><b>
+        <font face=" Arial" size="4">&nbsp;</font>
+			<font face="Bernard MT Condensed" size="5">Add A Company
+			</font></b></font>
+		</p>
+		<center>
+
 			Are you an Agent that would like to add your company? Enter the details below and click 'Submit' to add your company to our list.
 			<p>
 				<font color="red">Note: * Required Fields</font>
@@ -136,22 +139,22 @@ o\:*         { behavior: url(#default#VML) }
 				<table>
 					<tr>
 						<td>
-							<input type="number" name="COMPANYID" placeholder="COMPANY ID *" min="0" required>&nbsp;
+							<input type="number" name="COMPANYID" placeholder="COMPANY ID *" min="0">&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="COMPANYNAME" placeholder="COMPANY Name *" size="25" required></span></font>&nbsp;
+							<input type="text" name="COMPANYNAME" placeholder="COMPANY Name *" size="25" maxlength="140" required></span></font>&nbsp;
 						</td>
 					<tr>
 						<td>
-							<input type="number" name="COMMISSIONRATE" placeholder="COMMISSION RATE" size="25" min="0"></span>
+							<input type="number" name="COMMISSIONRATE" placeholder="COMMISSION RATE" size="25" min="0" max="200"></span>
 							</font>&nbsp;
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="OFFICECITY" placeholder="Office Location (City)" size="25"></span></font>&nbsp;
+							<input type="text" name="OFFICECITY" placeholder="Office Location (City)" maxlength="140" size="25"></span></font>&nbsp;
 						</td>
 					</tr>
 
@@ -168,7 +171,7 @@ o\:*         { behavior: url(#default#VML) }
 				</table>
 				</p>
 			</form>
-</aside>
+
 		</center>
 
 		<OBJECT classid=CLSID:D45FD31B-5C6E-11D1-9EC1-00C04FD7081F id=ricci width="32" height="32"></OBJECT>
@@ -181,9 +184,9 @@ o\:*         { behavior: url(#default#VML) }
 			Merlin = ricci.Characters.Character(MerlinID);
 			Merlin.Show();
 			Merlin.Play("congratulate");
-			Merlin.Speak("Wonderful,...Let's add a new person.  ..");
+			Merlin.Speak("Wonderful,...Let's add a new person...");
 			Merlin.Play("domagic1");
-			//Merlin.Speak("Greating Doctor Azar, I am glad to see you at..house dot com.  ");
+			//Merlin.Speak("Greating Doctor Azar, I am glad to see you at...house dot com.  ");
 			Merlin.Hide();
 			function LoadLocalAgent(CharID, CharACS) {
 				LoadReq = ricci.Characters.Load(CharID, CharACS);
