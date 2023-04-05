@@ -77,7 +77,7 @@ public class AddAgent extends HttpServlet
  private void storeAgent(String AgentID, String AgentName, String AgentEmail) throws SQLException {
      pstmt.setString(1, AgentID);
      pstmt.setString(2, AgentName);
-     pstmt.setString(2, AgentEmail);
+     pstmt.setString(3, AgentEmail);
      pstmt.executeUpdate();
 
  }};
