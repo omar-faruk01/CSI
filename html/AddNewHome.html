@@ -144,58 +144,58 @@
 					<table>
 						<tr>
 							<td>
-								<input type="number" name="HOMEID" placeholder="HOME ID *" required maxlength="40">&nbsp;
+								<input type="number" name="HOMEID" placeholder="HOME ID *" required maxlength="40" oninput="maxLengthCheck(this)">&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="text" name="ADDRESS" placeholder="ADDRESS *" size="25" required maxlength="140" rows="5"></textarea></font>&nbsp;
+								<input type="text" name="ADDRESS" placeholder="ADDRESS *" size="25" required maxlength="140" rows="5" oninput="maxLengthCheck(this)"></textarea></font>&nbsp;
 							</td>
 						<tr>
 							<td>
-								<input type="number" name="FLOORSPACE" placeholder="FLOOR SPACE (IN SQ.FT)" size="25" min="0" maxlength="140"></font>&nbsp;
+								<input type="number" name="FLOORSPACE" placeholder="FLOOR SPACE (IN SQ.FT)" size="25" min="0" maxlength="140" oninput="maxLengthCheck(this)"></font>&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="number" name="FLOORS" placeholder="FLOORS" size="25" min="0" maxlength="20"></span></font>
+								<input type="number" name="FLOORS" placeholder="FLOORS" size="25" min="0" maxlength="20" oninput="maxLengthCheck(this)"></span></font>
 								&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="number" name="BEDROOMS" placeholder="BEDROOMS" size="25" min="0" maxlength="20"></span></font>
+								<input type="number" name="BEDROOMS" placeholder="BEDROOMS" size="25" min="0" maxlength="20" oninput="maxLengthCheck(this)"></span></font>
 								&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input type="number" name="BATHROOMS" placeholder="BATHROOMS" size="25"
-									   min="0" maxlength="20"></span></font>&nbsp;
+									   min="0" maxlength="20" oninput="maxLengthCheck(this)"></span></font>&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input type="number" name="LANDSIZE" placeholder="LAND SIZE (IN ACRES)" size="25"
-									   min="0" maxlength="40"></span></font>&nbsp;
+									   min="0" maxlength="40" oninput="maxLengthCheck(this)"></span></font>&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input type="number" name="YEARCONSTRUCTED" placeholder="YEAR CONSTRUCTED" size="25"
-									   min="0" maxlength="8"></span></font>&nbsp;
+									   min="0" maxlength="8" oninput="maxLengthCheck(this)"></span></font>&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input type="text" name="CATEGORY" placeholder="CATEGORY (EX. LUXURY HOME, APARTMENT)" size="25"
-									   min="0" maxlength="140"></span></font>&nbsp;
+									   min="0" maxlength="140" oninput="maxLengthCheck(this)"></span></font>&nbsp;
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input type="number" name="HOMEPRICE" placeholder="PRICE (USD)" size="25"
-									   min="0" maxlength="20"></span></font>&nbsp;
+									   min="0" maxlength="20" oninput="maxLengthCheck(this)"></span></font>&nbsp;
 							</td>
 						</tr>
 						</tr>
@@ -233,6 +233,11 @@
 			LoadReq = ricci.Characters.Load(CharID, CharACS);
 			return (true);
 		}
+		
+		 function maxLengthCheck(object) {
+                if (object.value.length > object.maxLength)
+                    object.value = object.value.slice(0, object.maxLength)
+            }
 // BY STAR28.com
 	</SCRIPT>
 
