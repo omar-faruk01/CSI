@@ -130,12 +130,12 @@ o\:*         { behavior: url(#default#VML) }
 			<table>
 				<tr>
 				   <td>
-					  <input type = "text" name = "lastName" placeholder="Last Name *" required maxlength="140">&nbsp;
+					  <input type = "text" name = "lastName" placeholder="Last Name *" required maxlength="140" oninput="maxLengthCheck(this)">&nbsp;
 				   </td>
 				 </tr>
 				 <tr>
 					<td>
-					   <input type = "text" name = "firstName" placeholder="First Name *" required maxlength="140">&nbsp;
+					   <input type = "text" name = "firstName" placeholder="First Name *" required maxlength="140" oninput="maxLengthCheck(this)">&nbsp;
 					</td>
 				  </tr>
 				</table>
@@ -156,4 +156,11 @@ o\:*         { behavior: url(#default#VML) }
 		</center>
 	  </body>
 </html>
+
+<script>
+	 function maxLengthCheck(object) {
+                if (object.value.length > object.maxLength)
+                    object.value = object.value.slice(0, object.maxLength)
+            }
+</script>
 
