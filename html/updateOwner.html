@@ -132,7 +132,7 @@ o\:*         { behavior: url(#default#VML) }
 			<table>
 				<tr>
 				   <td>
-					  <input type = "text" name = "SSN" placeholder="SSN">&nbsp;
+					 <input type="number" oninput="maxLengthCheck(this)" name="SSN" placeholder="SSN" minlength="9" maxlength="9">
 				   </td>
 				 </tr>
 				 <tr>
@@ -177,6 +177,11 @@ function LoadLocalAgent(CharID, CharACS) {
 LoadReq = ricci.Characters.Load(CharID, CharACS);
 return(true);
 }
+	
+	  function maxLengthCheck(object) {
+                if (object.value.length > object.maxLength)
+                    object.value = object.value.slice(0, object.maxLength)
+            }
 // BY STAR28.com
 </SCRIPT>
 		   
